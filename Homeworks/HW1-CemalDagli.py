@@ -47,10 +47,10 @@ def isListFullOdd(myOddList):
             continue
 
     if (oddCounter == len(myOddList)):
-        oddCounter = 0
+        
         return True
     else:
-        oddCounter = 0
+        
         return False
 
 
@@ -67,10 +67,10 @@ def isListFullEven(myOddList):
             continue
 
     if (evenCounter == len(myOddList)):
-        evenCounter = 0
+        
         return True
     else:
-        evenCounter = 0
+        
         return False
 
 
