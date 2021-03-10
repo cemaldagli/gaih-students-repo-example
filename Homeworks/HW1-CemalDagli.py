@@ -1,44 +1,112 @@
-def mergeListsHere(list1,list2):
+def mergeListsHere(list1, list2):
 
     return list1+list2
 
+
 def multiplyMergedList(mergedList):
-
-    for i in range(0,len(mergedList)):
-
-        mergedList[i]=mergedList[i]*2
+    for i in range(0, len(mergedList)):
+        mergedList[i] = mergedList[i] * 2
 
     return mergedList
 
 
-def getListsHere(listOrder):
+def getEvenListHere(listType):
 
-    yourList=[]
-    listLenght=int(input("How many elements will the {0}.list be containing?".format(listOrder)))
+    yourEvenList = []
 
-    for i in range(0,listLenght):
-        listElement = int(input("Enter the {0}.element!!!".format(i)))
-        yourList.append(listElement)
+    listLenght = int(input("How many elements will the {}.list be containing?".format(listType)))
 
-    return yourList
+    for i in range(0, listLenght):
+        listElement = int(input("Enter the {0}.element of {1} List!!!".format(i+1,listType)))
+        yourEvenList.append(listElement)
+
+    return yourEvenList
+
+
+def getOddListHere(listType):
+
+    yourOddList = []
+    listLenght = int(input("How many elements will the {0} list be containing?".format(listType)))
+
+    for i in range(0, listLenght):
+        listElement = int(input("Enter the {0}.element of {1} List!!!".format(i+1,listType)))
+        yourOddList.append(listElement)
+
+    return yourOddList
+
+
+def isListFullOdd(myOddList):
+    oddCounter = 0
+
+    for i in range(0, len(myOddList)):
+        if (myOddList[i] % 2 == 1):
+
+            oddCounter += 1
+
+        else:
+            continue
+
+    if (oddCounter == len(myOddList)):
+        oddCounter = 0
+        return True
+    else:
+        oddCounter = 0
+        return False
+
+
+def isListFullEven(myOddList):
+
+    evenCounter = 0
+
+    for i in range(0, len(myOddList)):
+        if (myOddList[i] % 2 == 0):
+
+            evenCounter += 1
+
+        else:
+            continue
+
+    if (evenCounter == len(myOddList)):
+        evenCounter = 0
+        return True
+    else:
+        evenCounter = 0
+        return False
+
 
 def printOurNewList(latelyUpdatedList):
-
-    for i in range(0,len(latelyUpdatedList)):
-        print("Order in the List: {0} Value:{1} and Type{2}".format(i,latelyUpdatedList[i],type(latelyUpdatedList[i])))
+    for i in range(0, len(latelyUpdatedList)):
+        print(
+            "Order in the List: {0} Value:{1} and Type{2}".format(i, latelyUpdatedList[i], type(latelyUpdatedList[i])))
 
 
 if __name__ == '__main__':
 
-    mainList1,mainList2=[], []
 
-    mainList1=getListsHere(1)
-    mainList2 = getListsHere(2)
+    mainList1, mainList2 = [], []
 
-    mergedList,multipliedList= [], []
+    mergedList, multipliedList = [], []
 
-    mergedList=mergeListsHere(mainList1,mainList2)
+    mainList1 = getEvenListHere("Even List")
+    mainList2 = getOddListHere("Odd List")
 
-    multipliedList= multiplyMergedList(mergedList)
+    if (isListFullOdd(mainList2) == False or isListFullEven(mainList1) == False):
+
+        mainList1, mainList2 = [], []
+        print("Please re-input the Lists!! Because you entered wrong values for the lists!!!")
+
+        mainList1 = getEvenListHere("Even List")
+        mainList2 = getOddListHere("Odd List")
+
+
+    else:
+
+        print("You entered suitable values for the lists!!!")
+
+
+
+    mergedList = mergeListsHere(mainList1, mainList2)
+
+    multipliedList = multiplyMergedList(mergedList)
 
     printOurNewList(multipliedList)
