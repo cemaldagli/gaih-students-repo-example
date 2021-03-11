@@ -11,8 +11,8 @@ def printCVs(applicantList,numberApplicant):
 
     listExtentions=["","st","nd","rd","th","th"]
 
-    for i in range(0,numberApplicant):
-
+    for i in range(0,numberApplicant):  
+ 
         print("---------------------------- {0}.{1} Candidate ----------------------------".format(i+1,listExtentions[i+1]))
         print("Name:" +applicantList[i]["name"] + "\n"
         + "Surname: "+ applicantList[i]["surname"] + "\n" + "Age: " +applicantList[i]["age"] + "\n" +
@@ -45,3 +45,5 @@ if __name__ == '__main__':
     for i in range(0, numberApplicant):
 
         printCVs(applicantList , numberApplicant)
+
+        
